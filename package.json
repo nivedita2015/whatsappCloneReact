@@ -1,0 +1,25 @@
+{
+  "name": "whatsapp_clone",
+  "version": "1.0.0",
+  "description": "whatsapp clone using React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "nodemon --exec node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nivedita2015/whatsappCloneReact.git"
+  },
+  "author": "nivedita2015",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nivedita2015/whatsappCloneReact/issues"
+  },
+  "homepage": "https://github.com/nivedita2015/whatsappCloneReact#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.0",
+    "nodemon": "^1.11.0"
+  }
+}

@@ -14,30 +14,13 @@ import {
   ListView,
   Image
 } from 'react-native';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+import Calls from './app/components/Calls.js';
+import Chats from './app/components/Chats.js';
+import Contacts from './app/components/Contacts.js';
 
-import { fetch } from 'fetch';
-
-const ds = new ListView.DataSource({rowHasChanged: (r1,r2) => r1 != r1})
 
 export default class whatsappCloneReact extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      randomUsersDataSource : ds.cloneWithRows([]),
-      loaded: false
-    }
-  }
-
-componentDidMount() {
-  fetch('https://gist.githubusercontent.com/nivedita2015/10e76ced192e4309aef7159d9e65d73c/raw/7a812e3176c19b0087e55d91f5717a200a69d1a8/randomUsers.json')
-  .then(response => response.json())
-  .then((data) => {
-    this.setState({
-      randomUsersDataSource: ds.cloneWithRows(data),
-      loaded: true
-    })
-  });
-}
 
   render() {
     return (
@@ -53,11 +36,17 @@ componentDidMount() {
       </View>
       </View>
       <View style={styles.contentContainer}>
-      <ListView
-        initialListSize={5}
-        enableEmptySection={true}
-        dataSource={this.state.randomUsersDataSource}
-        renderRow={(person) => { return this.renderUserRow(person)}} />
+      <ScrollableTabView
+      tabBarUnderLineColor = "#fff"
+      tabBarUnderLineStyle = {{backgroundColor: "#fff"}}
+      tabBarBackgroundColor = "#075e54"
+      tabBarActiveTextColor = "#fff"
+      tabBarInactiveTextColor = "#88b0ac"
+      >
+      <Calls tabLabel="Calls" {...this.props} />
+      <Chats tabLabel="Chats" {...this.props} />
+      <Contacts tabLabel="Contacts" {...this.props} />
+      </ScrollableTabView>
       </View>
       </View>
     );
@@ -124,45 +113,6 @@ const styles = StyleSheet.create({
     fontSize: 23,
     padding: 5
   },
-  listItemContainer: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10
-  },
-  iconContainer: {
-    flex: 1,
-    alignItems: "flex-start"
-  },
-  callerDetailsContainer: {
-    flex: 4,
-    justifyContent: "center",
-    borderBottomColor: "rgba(92,94,94,0.5)",
-    borderBottomWidth: 0.25
-  },
-  callerDetailsContainerWrap: {
-    flex: 1,
-    alignItems: "center",
-    flexDirection: "row"
-  },
-  nameContainer: {
-    alignItems: "flex-start",
-    flex: 1
-  },
-  dateContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  callIconContainer: {
-    flex: 1,
-    alignItems: "flex-end"
-  },
-  initStyle: {
-    borderRadius: 30,
-    width: 60,
-    height: 60
-  }
 });
 
 AppRegistry.registerComponent('whatsappCloneReact', () => whatsappCloneReact);

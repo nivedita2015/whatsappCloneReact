@@ -1,32 +1,22 @@
 {
-  "name": "whatsapp_clone",
-  "version": "1.0.0",
-  "description": "whatsapp clone using React",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "nodemon": "nodemon --exec node"
-  },
-  "engines": {
-    "node": "6.9.1",
-    "npm": "3.10.8"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nivedita2015/whatsappCloneReact.git"
-  },
-  "author": "nivedita2015",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nivedita2015/whatsappCloneReact/issues"
-  },
-  "homepage": "https://github.com/nivedita2015/whatsappCloneReact#readme",
-  "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-plugin-react": "^7.0.0",
-    "nodemon": "^1.11.0"
-  },
-  "dependencies": {
-    "express": "^4.15.2"
-  }
+	"name": "whatsappCloneReact",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"react": "16.0.0-alpha.6",
+		"react-native": "0.44.0"
+	},
+	"devDependencies": {
+		"babel-jest": "20.0.1",
+		"babel-preset-react-native": "1.9.2",
+		"jest": "20.0.1",
+		"react-test-renderer": "16.0.0-alpha.6"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
 }
